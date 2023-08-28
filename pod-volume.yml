@@ -1,15 +1,11 @@
 apiVersion: v1
-kind: Pod
+kind: Secret
 metadata:
-  name: env-server-user-secret
-spec:
-  containers:
-  - name: engvar-container
-    image:  nginx
-    env:
-    - name: SECRET_SERVERUSER
-      valueFrom:
-        secretKeyRef:
-          name: server-user
-          key:  server-username
-          
+  name: secret-basic-auth
+type: kubernetes.io/basic-auth
+#k8s requires below username and password when you create this type of secret (to be revised)
+stringData:
+  username: admin
+  password: pa$$word
+
+  
