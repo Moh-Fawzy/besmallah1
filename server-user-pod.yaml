@@ -8,7 +8,7 @@ spec:
       image: nginx
       volumeMounts:
         - name: secret-volume
-          mountpath:  /etc/secret-volume
+          mountPath:  /etc/secret-volume
           readOnly: true
   volumes:
     - name: secret-volume
