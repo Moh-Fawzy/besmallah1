@@ -1,10 +1,15 @@
 apiVersion: v1
-kind: Secret
+kind: Pod
 metadata:
-  name: db-secret-un
-type: Opaque
-stringData:
-  config.yaml: |
-    ytchannel:  "https://ww.youtube.com/c/codographia"
-    user: admin
-    password: password
+  name: env-server-user-secret
+spec:
+  containers:
+  - name: engvar-container
+    image:  nginx
+    env:
+    - name: SECRET_SERVERUSER
+      valueFrom:
+        secretKeyRef:
+          name: server-user
+          key:  server-username
+          
