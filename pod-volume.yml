@@ -1,32 +1,12 @@
-
-kind: PersistentVolumeClaim
-apiversion: v1
-metadata:
-  name: pvc-webserver
-spec:
-  
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 3Gi
-
----
-kind: Pod
 apiVersion: v1
+kind: Secret
 metadata:
-  name: pod-nginx
-spec:
-   volumes:
-    - name: server-storage
-      PersistentVolumeClaim:
-        claimName:  pvc-webserver
-   containers:
-    - name: pv-container
-      image:  nginx
-      ports:
-        - containerPort:  80
-          name: webserver
-      volumeMounts:
-        - mountPath: "usr/share/nginx/html"
-          name: server-storage
+  name: db-secret
+type: Opaque
+data:
+  username: YWRtaW4=
+  password: MWYyZDFlMmU2N2Rm
+ #this password is encoded with base64, if you want to provide it in string, use the below:
+stringData:
+  server: database-server
+  
