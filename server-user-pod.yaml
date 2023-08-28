@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secret-vol-pod
+spec:
+  containers:
+  - name: secret-container
+    image:  nginx
+    volumeMounts:
+      - name: secret-volume
+        mountpath:  /etc/secret-volume
+        readonly: true
+  volumes:
+    - name: secret-volume
+      secret:
+        secretName: vol-secret
+
