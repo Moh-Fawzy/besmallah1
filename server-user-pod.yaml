@@ -4,12 +4,12 @@ metadata:
   name: secret-vol-pod
 spec:
   containers:
-  - name: secret-container
-    image:  nginx
-    volumeMounts:
-      - name: secret-volume
-        mountpath:  /etc/secret-volume
-        readOnly: true
+    - name: secret-container
+      image: nginx
+      volumeMounts:
+        - name: secret-volume
+          mountpath:  /etc/secret-volume
+          readOnly: true
   volumes:
     - name: secret-volume
       secret:
