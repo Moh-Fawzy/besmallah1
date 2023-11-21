@@ -26,9 +26,6 @@ spec:
         - name: k8-test
           mountPath: /etc/k8-test
           readOnly: true
-        - name: mongodb-scripts
-          mountPath: /docker-entrypoint-initdb.d
-          readOnly: true
         - name: mongodb-configmap
           mountPath: /config
           readOnly: true
