@@ -4,14 +4,14 @@ metadata:
     name: mongodb-pv
 spec:
   capacity:
-    storage: 2Gi
+    storage: 20Mi
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: mongodb-storageclass
   local:
-    path: /mnt/data
+    path: /
   nodeAffinity:
     required:
       nodeSelectorTerms:
