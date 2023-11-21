@@ -26,9 +26,6 @@ spec:
         - name: k8-test
           mountPath: /etc/k8-test
           readOnly: true
-        - name: mongodb-configmap
-          mountPath: /config
-          readOnly: true
         - name: mongodb-data
           mountPath: /data/db
       nodeSelector:
@@ -53,12 +50,6 @@ spec:
           - key: MONGO_USERS_LIST
             path: MONGO_USERS_LIST
             mode: 0444
-      - name: mongodb-configmap
-        configMap:
-          name: mongodb-configmap
-          items:
-          - key: mongo.conf
-            path: mongo.conf
       - name: mongodb-data
         persistentVolumeClaim:
           claimName: mongodb-pvc
