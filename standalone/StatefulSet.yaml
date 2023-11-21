@@ -34,6 +34,8 @@ spec:
           readOnly: true
         - name: mongodb-data
           mountPath: /data/db
+      nodeSelector:
+        size: large
       volumes:
       - name: k8-test
         secret:
